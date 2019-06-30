@@ -1,4 +1,5 @@
 import { request } from 'https'
+import { transformRequest } from '../helps/data';
 
 export type Method =
   | 'get'
@@ -24,6 +25,12 @@ export interface AxiosRequestConfig {
   headers?: any
   responseType?: XMLHttpRequestResponseType
   timeout?: number
+  transformRequest?: AxiosTransformer | AxiosTransformer[]
+  transformRespons?: AxiosTransformer | AxiosTransformer[]
+  cancelToken?: CancelToken
+  withCredentials?: boolean
+  xsrfCookieName?: string
+  xsrfHeaderName?: string
   [propName: string]: any
 }
 export interface AxiosResponse<T = any> {
@@ -76,4 +83,46 @@ export interface ResolvedFn<T> {
 }
 export interface RejectdFn {
   (error: any): any
+}
+export interface AxiosTransformer {
+  (data: any, headers?: any): any
+}
+
+export interface AxiosStatic extends AxiosInstance {
+  create(config?: AxiosRequestConfig): AxiosInstance
+  CancelToken: CancelTokenStatic
+  Cancel: CancelStatic
+  isCcancel: (value: any) => boolean
+}
+
+export interface CancelToken {
+  promise: Promise<Cancel>
+  reson?: Cancel
+  throwIfRequested(): void
+}
+
+export interface Canceler {
+  (message?: string): void
+}
+
+export interface CancelExecutor {
+  (cancel: Canceler): void
+}
+
+export interface CancelTokenSource {
+  token: CancelToken
+  cancel: Canceler
+}
+
+export interface CancelTokenStatic {
+  new(executor: CancelExecutor): CancelToken
+  source(): CancelTokenSource
+}
+
+export interface Cancel {
+  message?: string
+}
+
+export interface CancelStatic {
+  new(message?: string): Cancel
 }
