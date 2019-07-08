@@ -19,7 +19,7 @@ axios.create = function create(config) {
 }
 axios.CancelToken = CancelToken
 axios.Cancel = Cancel
-axios.isCcancel = isCancel
+axios.isCancel = isCancel
 
 axios.all = function all(promises) {
   return Promise.all(promises)
