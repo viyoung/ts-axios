@@ -47,7 +47,7 @@ export interface AxiosResponse<T = any> {
   request: any
 }
 
-export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> { }
+export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> {}
 
 export interface AxiosError extends Error {
   config: AxiosRequestConfig
@@ -90,7 +90,7 @@ export interface AxiosInstance extends Axios {
 }
 
 export interface AxiosClassStatic {
-  new(config: AxiosRequestConfig): Axios
+  new (config: AxiosRequestConfig): Axios
 }
 
 export interface AxiosStatic extends AxiosInstance {
@@ -146,7 +146,7 @@ export interface CancelTokenSource {
 }
 
 export interface CancelTokenStatic {
-  new(executor: CancelExecutor): CancelToken
+  new (executor: CancelExecutor): CancelToken
 
   source(): CancelTokenSource
 }
@@ -156,7 +156,7 @@ export interface Cancel {
 }
 
 export interface CancelStatic {
-  new(message?: string): Cancel
+  new (message?: string): Cancel
 }
 
 export interface AxiosBasicCredentials {
