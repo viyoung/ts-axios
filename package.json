@@ -1,6 +1,6 @@
 {
   "name": "ts-axios-viyoung",
-  "version": "0.1.6",
+  "version": "0.1.1",
   "description": "",
   "keywords": [],
   "main": "dist/axios.umd.js",
